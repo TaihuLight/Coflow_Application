@@ -154,7 +154,7 @@ void str_cli2(int sockfd){
 	}
 		
 	my_write(sockfd, sendline, length);
-		
+	close(sockfd);		
 }
 
 
