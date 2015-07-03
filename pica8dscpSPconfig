@@ -1,0 +1,24 @@
+set class-of-service forwarding-class f0 local-priority 0
+set class-of-service forwarding-class f1 local-priority 1
+set class-of-service forwarding-class f2 local-priority 2
+set class-of-service forwarding-class f3 local-priority 3
+set class-of-service forwarding-class f4 local-priority 4
+set class-of-service forwarding-class f5 local-priority 5
+set class-of-service forwarding-class f6 local-priority 6
+set class-of-service forwarding-class f7 local-priority 7
+
+
+set class-of-service classifier c1 trust-mode dscp
+set class-of-service classifier c1 forwarding-class f0 code-point 0
+set class-of-service classifier c1 forwarding-class f1 code-point 8
+set class-of-service classifier c1 forwarding-class f2 code-point 16
+set class-of-service classifier c1 forwarding-class f3 code-point 24
+set class-of-service classifier c1 forwarding-class f4 code-point 32
+set class-of-service classifier c1 forwarding-class f5 code-point 40
+set class-of-service classifier c1 forwarding-class f6 code-point 48
+set class-of-service classifier c1 forwarding-class f7 code-point 56
+
+
+
+set class-of-service interface ge-1/1/1 classifier c1
+set class-of-service interface ge-1/1/2 classifier c1
