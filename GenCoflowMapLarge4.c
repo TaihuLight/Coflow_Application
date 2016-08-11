@@ -3,13 +3,13 @@
 
 /*Adjust Parameter for Generating Coflow Traffic*/
 unsigned length_lamda = 2;
-unsigned int MAXLEN = 108000000; //the order of magnitude with a threshold value:MAXLEN*1.8 = kernel threashold
-unsigned int MINLEN = 2160000;
+unsigned int MAXLEN = 108000000*2; //the order of magnitude with a threshold value:MAXLEN*1.8 = kernel threashold
+unsigned int MINLEN = 2160000*10;
 
 unsigned int coflowid_lamda = 2;
-unsigned int coflowid_range = 20;
+unsigned int coflowid_range = 200;
 
-float expon2 = 3;
+float expon2 = 5;
 /*end*/
 
 unsigned int MAXTCPLEN = 7200;
@@ -153,14 +153,14 @@ void str_cli2(int sockfd, double expon){
 	//expon = expon_random(1,length_lamda);
 //	printf("%f\n", expon);
 	
-	if(expon < 5){
+	if(expon < 2.0){
 		length = (long) (expon * MINLEN);
 
 	}else {
 		//expon2 = expon2 + 0.2;
 		length = (long) (expon2 * MAXLEN);
 		//length = (long) (expon * MAXLEN);
-		printf("expon2:%f	length:%ld\n", expon2, length);
+		printf("expon2:%f	length:%ld\n", expon, length);
 	}
 	
 //	printf("length:%ld\n", length);
@@ -234,7 +234,7 @@ main(int argc, char **argv)
 	int i;
 	int j;
 	int k;
-	int threadNum = 15;
+	int threadNum = 10;
 	int cpucores = 1;
 
 	if (argc != 2)
